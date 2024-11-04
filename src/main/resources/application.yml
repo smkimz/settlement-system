@@ -1,5 +1,5 @@
 spring:
-  datasource:
+#  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
 #    username: root
@@ -28,7 +28,7 @@ spring:
 
   batch:
     job:
-      enabled: true
+      enabled: false
     jdbc:
       initialize-schema: always
       schema: classpath:org/springframework/batch/core/schema-mysql.sql

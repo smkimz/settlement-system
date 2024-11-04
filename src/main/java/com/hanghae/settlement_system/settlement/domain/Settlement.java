@@ -1,4 +1,4 @@
-package com.hanghae.settlement_system.video.domain;
+package com.hanghae.settlement_system.settlement.domain;
 
 import com.hanghae.settlement_system.user.domain.User;
 import jakarta.persistence.*;
@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class VideoViewLog {
+public class Settlement {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,11 +22,7 @@ public class VideoViewLog {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "video_id", nullable = false)
-    private Video video;
-
-    private Long startedFrom;
-    private Long endTo;
-    private LocalDateTime playedAt;
+    private LocalDateTime date = LocalDateTime.now();
+    private Long adAmount;
+    private Long videoAmount;
 }
