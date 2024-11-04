@@ -27,11 +27,14 @@ public class Video {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    private Long viewCount = 0L;
+    // private Long viewCount = 0L;
+    private Long viewCount;
     private Long playtime;
 
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();
+
+
 
     @PreUpdate
     public void preUpdate() {
