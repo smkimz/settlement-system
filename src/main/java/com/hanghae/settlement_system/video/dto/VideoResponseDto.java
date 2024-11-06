@@ -18,7 +18,7 @@ public class VideoResponseDto {
         this.description = video.getDescription();
         this.viewCount = video.getViewCount();
         this.playtime = video.getPlaytime();
-        this.userId = video.getUser().getId();
+        this.userId = video.getUserId();
     }
 }
 

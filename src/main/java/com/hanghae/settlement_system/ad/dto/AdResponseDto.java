@@ -11,7 +11,7 @@ public class AdResponseDto {
 
     public AdResponseDto(Ad ad) {
         this.id = ad.getId();
-        this.videoId = ad.getVideo().getId();
+        this.videoId = ad.getVideoId();
         this.viewCount = ad.getViewCount();
     }
 }

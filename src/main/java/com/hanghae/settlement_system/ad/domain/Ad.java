@@ -1,6 +1,5 @@
 package com.hanghae.settlement_system.ad.domain;
 
-import com.hanghae.settlement_system.video.domain.Video;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,16 +12,17 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class Ad {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "video_id", nullable = false)
-    private Video video;
+    private Long videoId;
 
     private Long viewCount = 0L;
+
     private LocalDateTime createdAt = LocalDateTime.now();
+
     private LocalDateTime updatedAt = LocalDateTime.now();
 
     @PreUpdate

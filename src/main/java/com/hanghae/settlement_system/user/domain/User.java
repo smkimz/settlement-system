@@ -30,6 +30,7 @@ public class User {
     private Role role;
 
     private LocalDateTime createdAt = LocalDateTime.now();
+
     private LocalDateTime updatedAt = LocalDateTime.now();
 
     public User(String email, String password, String nickname, Role role) {

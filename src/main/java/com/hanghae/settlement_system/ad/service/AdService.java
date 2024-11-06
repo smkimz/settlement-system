@@ -50,8 +50,8 @@ public class AdService {
 
         // Log ad view
         AdViewLog log = new AdViewLog();
-        log.setUser(user);
-        log.setAd(ad);
+        log.setUserId(userId);
+        log.setAdId(adId);
         log.setPlayedAt(LocalDateTime.now());
         adViewLogRepository.save(log);
     }
@@ -61,7 +61,7 @@ public class AdService {
                 .orElseThrow(() -> new ResourceNotFoundException("Video not found"));
 
         Ad ad = new Ad();
-        ad.setVideo(video);
+        ad.setVideoId(video.getId());
         adRepository.save(ad);
     }
 

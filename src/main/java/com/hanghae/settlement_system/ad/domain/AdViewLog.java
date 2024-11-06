@@ -1,7 +1,9 @@
 package com.hanghae.settlement_system.ad.domain;
 
-import com.hanghae.settlement_system.user.domain.User;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,17 +15,16 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class AdViewLog {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "ad_id", nullable = false) // ad_id 외래키와 연결
-    private Ad ad;
+    private Long adId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false) // user_id 외래키와 연결
-    private User user;
+    private Long userId;
 
     private LocalDateTime playedAt;
+
+    private Boolean isBatched = false; // false가 기본값
 }

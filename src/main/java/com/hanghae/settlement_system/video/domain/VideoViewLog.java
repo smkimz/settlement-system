@@ -1,7 +1,9 @@
 package com.hanghae.settlement_system.video.domain;
 
-import com.hanghae.settlement_system.user.domain.User;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,15 +19,15 @@ public class VideoViewLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "video_id", nullable = false)
-    private Video video;
+    private Long videoId;
 
     private Long startedFrom;
+
     private Long endTo;
+
     private LocalDateTime playedAt;
+
+    private Boolean isBatched = false; // false가 기본값
 }

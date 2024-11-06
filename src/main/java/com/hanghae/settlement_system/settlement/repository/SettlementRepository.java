@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface SettlementRepository extends JpaRepository<Settlement, Long> {
+
     Optional<Settlement> findByUserIdAndSettlementDate(Long userId, LocalDate settlementDate);
 
 }

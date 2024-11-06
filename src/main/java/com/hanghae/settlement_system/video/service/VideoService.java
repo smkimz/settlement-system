@@ -34,7 +34,7 @@ public class VideoService {
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
         Video video = new Video();
-        video.setUser(user);
+        video.setUserId(user.getId());
         video.setTitle(request.getTitle());
         video.setDescription(request.getDescription());
         video.setPlaytime(request.getPlaytime());
@@ -51,15 +51,15 @@ public class VideoService {
             return;
         }
 
-        if (video.getUser().getId().equals(request.getUserId())) {
+        if (video.getUserId().equals(request.getUserId())) {
             video.setViewCount(video.getViewCount() + 1);
         }
 
         videoRepository.save(video);
 
         VideoViewLog log = new VideoViewLog();
-        log.setUser(video.getUser());
-        log.setVideo(video);
+        log.setUserId(video.getUserId());
+        log.setVideoId(video.getId());
         log.setPlayedAt(LocalDateTime.now());
         log.setStartedFrom(request.getPlaybackPosition());
         videoViewLogRepository.save(log);
