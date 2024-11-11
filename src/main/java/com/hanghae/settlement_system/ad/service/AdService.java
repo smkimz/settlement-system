@@ -6,9 +6,7 @@ import com.hanghae.settlement_system.ad.dto.AdRegistrationRequestDto;
 import com.hanghae.settlement_system.ad.dto.AdResponseDto;
 import com.hanghae.settlement_system.ad.repository.AdRepository;
 import com.hanghae.settlement_system.ad.repository.AdViewLogRepository;
-import com.hanghae.settlement_system.exception.AbusingException;
 import com.hanghae.settlement_system.exception.ResourceNotFoundException;
-import com.hanghae.settlement_system.user.domain.User;
 import com.hanghae.settlement_system.user.repository.UserRepository;
 import com.hanghae.settlement_system.video.domain.Video;
 import com.hanghae.settlement_system.video.repository.VideoRepository;
@@ -37,22 +35,18 @@ public class AdService {
         Ad ad = adRepository.findById(adId)
                 .orElseThrow(() -> new ResourceNotFoundException("Ad not found"));
 
-        User user = userRepository.findById(userId)
+        userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-        LocalDateTime limitTime = LocalDateTime.now().minusSeconds(30);
-        if (adViewLogRepository.existsByUserIdAndAdIdAndPlayedAtAfter(userId, adId, limitTime)) {
-            throw new AbusingException("Ad viewing frequency limit reached");
-        }
-
+        // 광고 조회수 추가
         ad.setViewCount(ad.getViewCount() + 1);
+        ad.setUpdatedAt(LocalDateTime.now());
         adRepository.save(ad);
 
-        // Log ad view
+        // 광고 로그 추가
         AdViewLog log = new AdViewLog();
         log.setUserId(userId);
         log.setAdId(adId);
-        log.setPlayedAt(LocalDateTime.now());
         adViewLogRepository.save(log);
     }
 
@@ -62,6 +56,9 @@ public class AdService {
 
         Ad ad = new Ad();
         ad.setVideoId(video.getId());
+        ad.setViewCount(0L);
+        ad.setCreatedAt(LocalDateTime.now());
+        ad.setUpdatedAt(LocalDateTime.now());
         adRepository.save(ad);
     }
 

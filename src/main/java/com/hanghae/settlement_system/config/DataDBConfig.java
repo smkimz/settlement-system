@@ -22,7 +22,7 @@ import java.util.HashMap;
 public class DataDBConfig {
 
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource-data")
+    @ConfigurationProperties(prefix = "spring.data.datasource")
     public DataSource dataDBSource() {
         return DataSourceBuilder.create().build();
     }

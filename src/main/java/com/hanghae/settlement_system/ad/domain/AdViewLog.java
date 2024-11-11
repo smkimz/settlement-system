@@ -26,5 +26,5 @@ public class AdViewLog {
 
     private LocalDateTime playedAt;
 
-    private Boolean isBatched = false; // false가 기본값
+    private Boolean isBatched = false;
 }

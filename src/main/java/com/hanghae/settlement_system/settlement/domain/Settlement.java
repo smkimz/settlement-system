@@ -26,9 +26,9 @@ public class Settlement {
 
     private Double videoEarnings; // 동영상 정산 금액
 
-    private Double adEarnings;     // 광고 정산 금액
+    private Double adEarnings; // 광고 정산 금액
 
-    private Double totalEarnings;  // 총 정산 금액
+    private Double totalEarnings; // 총 정산 금액
 
     public Settlement(Long userId, LocalDate settlementDate, Double videoEarnings, Double adEarnings) {
         this.userId = userId;

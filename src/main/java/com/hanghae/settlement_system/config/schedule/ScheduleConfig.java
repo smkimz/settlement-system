@@ -23,7 +23,7 @@ public class ScheduleConfig {
     @Scheduled(cron = "10 * * * * *", zone = "Asia/Seoul")
     public void runSettlementJob() throws Exception {
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String date = dateFormat.format(new Date());
 
         JobParameters jobParameters = new JobParametersBuilder()
