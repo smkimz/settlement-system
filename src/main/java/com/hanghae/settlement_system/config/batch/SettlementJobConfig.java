@@ -1,12 +1,12 @@
 package com.hanghae.settlement_system.config.batch;
 
-import com.hanghae.settlement_system.settlement.domain.Settlement;
-import com.hanghae.settlement_system.settlement.repository.SettlementRepository;
-import com.hanghae.settlement_system.user.domain.User;
-import com.hanghae.settlement_system.user.repository.UserRepository;
-import com.hanghae.settlement_system.video.domain.Video;
-import com.hanghae.settlement_system.video.repository.VideoRepository;
-import com.hanghae.settlement_system.video.repository.VideoViewLogRepository;
+import com.hanghae.settlement_system.domain.settlement.Settlement;
+import com.hanghae.settlement_system.domain.user.User;
+import com.hanghae.settlement_system.domain.video.Video;
+import com.hanghae.settlement_system.repository.settlement.SettlementRepository;
+import com.hanghae.settlement_system.repository.user.UserRepository;
+import com.hanghae.settlement_system.repository.video.VideoRepository;
+import com.hanghae.settlement_system.repository.video.VideoViewLogRepository;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepScope;
