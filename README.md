@@ -31,7 +31,7 @@
 
 ### (3) ERD
 
-![erd](C:\Users\KMR\Desktop\erd.png)
+![erd](https://github.com/smkimz/settlement-system/blob/main/readme/erd.png?raw=true)
 
 
 
